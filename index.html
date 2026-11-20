@@ -1,41 +1,807 @@
 <!doctype html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <title>Planeta Reggae — Xatspace de LION (17767)</title>
-    <style>
-      html,
-      body {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        overflow: hidden;
-        background: #020503;
-      }
+<head>
+<base href="https://roots-system-reggae.dokaoefrt.chatgpt.site/">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#030504">
+  <meta name="description" content="Planeta Reggae — xatspace premium de Lion (17767), com rádio ao vivo, cultura reggae e conexão Brasil/Jamaica.">
+  <meta property="og:title" content="Planeta Reggae — Lion 17767">
+  <meta property="og:description" content="Um só amor, um só coração. Rádio Planeta Reggae ao vivo.">
+  <meta property="og:image" content="assets/og.png">
+  <title>Planeta Reggae — Lion 17767</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <style>
+:root {
+  --font-geist-sans: Arial, Helvetica, sans-serif;
+  --font-geist-mono: Consolas, "Courier New", monospace;
+  --ink: #050806;
+  --green: #04d976;
+  --dark-green: #003e28;
+  --gold: #f8c92d;
+  --red: #ee3d2d;
+  --cream: #f6f0d8;
+  --muted: rgba(246, 240, 216, 0.58);
+}
 
-      iframe {
-        display: block;
-        width: 100%;
-        height: 100%;
-        border: 0;
-        background: #020503;
-      }
-    </style>
-  </head>
-  <body>
-    <iframe
-      src="https://roots-system-reggae.dokaoefrt.chatgpt.site/"
-      title="Planeta Reggae — Xatspace de LION, identificação 17767"
-      loading="eager"
-      allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
-      allowfullscreen
-      referrerpolicy="strict-origin-when-cross-origin"
-    ></iframe>
-    <noscript>
-      Para abrir o Xatspace, acesse
-      https://roots-system-reggae.dokaoefrt.chatgpt.site/
-    </noscript>
-  </body>
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; background: #030504; }
+body { color: var(--cream); font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif; overflow-x: hidden; }
+button { font: inherit; text-align:center; }
+
+.site-shell {
+  min-height: 100svh; position: relative; overflow: hidden;
+  background: radial-gradient(circle at 62% 54%, rgba(16,112,70,.18), transparent 25%), linear-gradient(145deg,#050806 0%,#09130d 46%,#020302 100%);
+}
+.ambient { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.ambient::before { content:''; position:absolute; inset:0; opacity:.25; background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px); background-size:80px 80px; mask-image:linear-gradient(to bottom,black,transparent 75%); }
+.ambient-glow { position:absolute; width:45vw; height:45vw; border-radius:50%; filter:blur(120px); opacity:.14; }
+.ambient-glow-green { background:var(--green); right:2%; top:15%; animation:floatGlow 12s ease-in-out infinite; }
+.ambient-glow-gold { background:var(--gold); left:28%; bottom:-35%; animation:floatGlow 16s ease-in-out infinite reverse; }
+.ambient-glow-red { background:var(--red); left:-28%; top:30%; opacity:.08; }
+.film-grain { position:absolute; inset:-50%; opacity:.035; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E"); animation:grain .22s steps(2) infinite; }
+
+.boot-screen { position:fixed; inset:0; z-index:20; display:grid; place-content:center; justify-items:center; background:radial-gradient(circle at center,rgba(0,74,46,.42),transparent 34%),radial-gradient(circle at 50% 115%,rgba(248,201,45,.12),transparent 32%),#030504; transition:opacity 1s ease,visibility 1s; }
+.system-started .boot-screen { opacity:0; visibility:hidden; pointer-events:none; }
+.boot-screen::before,.boot-screen::after { content:''; position:absolute; inset:0; pointer-events:none; }
+.boot-screen::before { background:repeating-linear-gradient(90deg,transparent 0 9.9%,rgba(255,255,255,.025) 10% 10.08%); mask-image:linear-gradient(to bottom,transparent,black 40%,transparent); }
+.boot-screen::after { background:linear-gradient(90deg,var(--green) 0 33.333%,var(--gold) 33.333% 66.666%,var(--red) 66.666%); height:2px; top:auto; bottom:0; box-shadow:0 0 40px rgba(248,201,45,.55); }
+.genre-planets { position:absolute; inset:0; z-index:2; overflow:hidden; pointer-events:none; perspective:1000px; }
+.theme-planet { --planet-accent:var(--green); --orbit-width:460px; --orbit-height:230px; --orbit-tilt:-7deg; --orbit-counter-tilt:7deg; --orbit-speed:24s; --orbit-delay:-2s; position:absolute; left:50%; top:44%; width:var(--orbit-width); height:var(--orbit-height); border:1px solid rgba(246,240,216,.055); border-radius:50%; transform:translate(-50%,-50%) rotate(var(--orbit-tilt)); box-shadow:inset 0 0 28px rgba(4,217,118,.012); }
+.theme-planet::before { content:''; position:absolute; inset:-1px; border-radius:inherit; background:conic-gradient(from 90deg,transparent 0 72%,color-mix(in srgb,var(--planet-accent) 24%,transparent) 86%,transparent 100%); mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0); mask-composite:exclude; padding:1px; opacity:.42; }
+.theme-planet:nth-child(1) { --orbit-width:clamp(330px,31vw,470px); --orbit-height:clamp(180px,20vw,245px); --planet-accent:var(--green); --orbit-speed:22s; --orbit-delay:-3s; }
+.theme-planet:nth-child(2) { --orbit-width:clamp(430px,39vw,590px); --orbit-height:clamp(230px,25vw,310px); --planet-accent:var(--gold); --orbit-tilt:7deg; --orbit-counter-tilt:-7deg; --orbit-speed:29s; --orbit-delay:-15s; }
+.theme-planet:nth-child(3) { --orbit-width:clamp(530px,47vw,710px); --orbit-height:clamp(280px,30vw,375px); --planet-accent:var(--red); --orbit-tilt:-11deg; --orbit-counter-tilt:11deg; --orbit-speed:37s; --orbit-delay:-7s; }
+.theme-planet:nth-child(4) { --orbit-width:clamp(630px,55vw,830px); --orbit-height:clamp(330px,35vw,435px); --planet-accent:var(--gold); --orbit-tilt:10deg; --orbit-counter-tilt:-10deg; --orbit-speed:45s; --orbit-delay:-25s; }
+.theme-planet:nth-child(5) { --orbit-width:clamp(730px,63vw,960px); --orbit-height:clamp(380px,40vw,495px); --planet-accent:var(--green); --orbit-tilt:-6deg; --orbit-counter-tilt:6deg; --orbit-speed:72s; --orbit-delay:-4s; }
+.theme-planet:nth-child(6) { --orbit-width:clamp(830px,72vw,1120px); --orbit-height:clamp(430px,46vw,565px); --planet-accent:var(--red); --orbit-tilt:12deg; --orbit-counter-tilt:-12deg; --orbit-speed:66s; --orbit-delay:-43s; }
+.orbit-body { position:absolute; left:0; top:0; width:124px; display:grid; justify-items:center; gap:7px; offset-path:ellipse(50% 50% at 50% 50%); offset-distance:0%; offset-rotate:0deg; transform:translate(-50%,-50%) rotate(var(--orbit-counter-tilt)); animation:solarOrbit var(--orbit-speed) linear var(--orbit-delay) infinite; }
+.theme-planet:nth-child(even) .orbit-body { animation-direction:reverse; }
+.theme-globe { width:68px; height:68px; position:relative; display:block; border-radius:50%; }
+.theme-globe img { position:absolute; width:128px; height:128px; max-width:none; left:50%; top:50%; animation:planetTurn 12s linear infinite; filter:drop-shadow(0 9px 13px rgba(0,0,0,.62)); }
+.theme-planet:nth-child(even) .theme-globe img { animation-direction:reverse; animation-duration:15s; }
+.theme-planet small { max-width:124px; padding:6px 9px; color:var(--planet-accent); border:1px solid rgba(246,240,216,.12); border-radius:999px; background:rgba(3,7,5,.88); text-align:center; font:700 7px/1.25 var(--font-geist-mono); letter-spacing:.08em; text-transform:uppercase; box-shadow:0 8px 24px rgba(0,0,0,.3); }
+.boot-origin { position:absolute; left:50%; bottom:72px; z-index:3; display:grid; justify-items:center; transform:translateX(-50%); }
+.boot-flag { width:92px; height:46px; position:relative; overflow:hidden; margin-bottom:14px; transform:skew(-12deg); filter:drop-shadow(0 12px 28px rgba(0,0,0,.5)); }
+.boot-flag::before,.boot-flag::after { content:''; position:absolute; inset:0; clip-path:polygon(0 0,100% 0,50% 50%); background:var(--green); }
+.boot-flag::after { clip-path:polygon(0 100%,100% 100%,50% 50%); }
+.boot-flag span::before,.boot-flag span::after { content:''; position:absolute; inset:0; background:#0b0c0a; clip-path:polygon(0 0,42% 50%,0 100%); }
+.boot-flag span::after { clip-path:polygon(100% 0,58% 50%,100% 100%); }
+.boot-flag span { position:absolute; inset:0; background:var(--gold); clip-path:polygon(0 0,9% 0,50% 43%,91% 0,100% 0,57% 50%,100% 100%,91% 100%,50% 57%,9% 100%,0 100%,43% 50%); }
+.boot-flag,.boot-kicker,.boot-logo,.boot-caption,.start-button { z-index:3; }
+.boot-kicker { margin:0; color:var(--muted); font:600 10px/1 var(--font-geist-mono); letter-spacing:.22em; white-space:nowrap; }
+.boot-logo { width:clamp(220px,27vw,360px); position:relative; display:grid; place-items:center; isolation:isolate; }
+.boot-logo::before { content:''; position:absolute; inset:18%; z-index:-1; border-radius:50%; background:conic-gradient(from 180deg,rgba(4,217,118,.3),rgba(248,201,45,.24),rgba(238,61,45,.26),rgba(4,217,118,.3)); filter:blur(42px); opacity:.72; animation:brandAura 6s ease-in-out infinite; }
+.boot-logo img { width:100%; height:auto; display:block; filter:drop-shadow(0 26px 46px rgba(0,0,0,.72)); animation:logoFloat 7s ease-in-out infinite; }
+.boot-caption { max-width:720px; margin:0 0 36px; color:rgba(246,240,216,.58); text-align:center; font:600 11px/1.6 var(--font-geist-mono); letter-spacing:.17em; text-transform:uppercase; }
+.start-button { position:relative; min-width:300px; padding:20px 50px; display:grid; place-items:center; overflow:hidden; color:var(--cream); border:1px solid rgba(248,201,45,.42); border-radius:20px; background:rgba(11,19,13,.76); cursor:pointer; font:700 12px/1 var(--font-geist-mono); letter-spacing:.22em; box-shadow:inset 0 0 0 1px rgba(255,255,255,.03),0 20px 80px rgba(0,0,0,.45); transition:color .25s,background .25s,transform .25s; }
+.start-button::before { content:''; position:absolute; inset:0; width:0; background:var(--gold); z-index:-1; transition:width .35s ease; }
+.start-button:hover { color:#050806; transform:translateY(-2px); }
+.start-button:hover::before { width:100%; }
+.start-button i { position:absolute; right:22px; top:50%; color:var(--gold); font-size:17px; font-style:normal; transform:translateY(-50%); }
+.start-button:hover i { color:#050806; }
+.start-button:focus-visible { outline:2px solid var(--gold); outline-offset:6px; }
+.boot-status { position:absolute; bottom:36px; z-index:3; display:flex; align-items:center; gap:12px; color:rgba(246,240,216,.32); font:600 8px/1 var(--font-geist-mono); letter-spacing:.18em; }
+.status-dot { width:5px; height:5px; border-radius:50%; background:var(--green); box-shadow:0 0 10px var(--green); }
+.copyright-lion { position:fixed; right:18px; bottom:12px; z-index:30; margin:0; padding:7px 10px; color:rgba(246,240,216,.48); border:1px solid rgba(248,201,45,.12); border-radius:999px; background:rgba(3,7,5,.72); backdrop-filter:blur(10px); font:600 12px/1 var(--font-geist-mono); letter-spacing:.08em; pointer-events:none; }
+
+.dashboard { min-height:100svh; display:grid; grid-template:58px 78px minmax(0,1fr)/86px minmax(0,1fr) 340px; opacity:0; transform:scale(1.025); filter:blur(10px); transition:opacity 1.2s .25s,transform 1.2s .25s,filter 1.2s .25s; position:relative; z-index:2; }
+.system-started .dashboard { opacity:1; transform:none; filter:none; }
+.xat-menu-safe { grid-column:1/-1; grid-row:1; position:relative; border-bottom:1px solid rgba(246,240,216,.035); background:rgba(2,4,3,.72); z-index:6; }
+.xat-menu-safe::after { content:''; position:absolute; left:28px; right:28px; bottom:0; height:1px; background:linear-gradient(90deg,var(--green),var(--gold) 48%,var(--red),transparent 86%); opacity:.28; }
+.topbar { grid-column:1/-1; grid-row:2; display:grid; grid-template-columns:1fr 1fr 1fr; align-items:center; padding:0 28px; border:1px solid rgba(246,240,216,.1); border-top:0; border-radius:0 0 24px 24px; background:rgba(3,7,5,.7); backdrop-filter:blur(22px); z-index:5; }
+.brand-mark { grid-column:1; display:flex; align-items:center; gap:12px; perspective:680px; }
+.brand-disc { width:34px; height:34px; object-fit:contain; filter:drop-shadow(0 0 11px rgba(248,201,45,.28)); animation:logoFloat 6s ease-in-out infinite; }
+.lion-spinner { position:relative; display:block; width:132px; height:58px; transform-style:preserve-3d; animation:lionRotate 14s linear infinite; }
+.lion-face { position:absolute; inset:0; display:grid; place-items:center; overflow:hidden; backface-visibility:hidden; }
+.lion-face img { width:128px; height:58px; display:block; object-fit:cover; object-position:center; filter:drop-shadow(0 0 9px rgba(238,61,45,.3)) drop-shadow(0 5px 8px rgba(0,0,0,.5)); }
+.lion-back { transform:rotateY(180deg); }
+.top-status { grid-column:3; justify-self:end; display:flex; align-items:center; gap:12px; color:rgba(246,240,216,.55); font:500 11px/1 var(--font-geist-mono); }
+.signal { color:var(--green); font-size:24px; transform:rotate(-30deg); }
+.top-status button { margin-left:12px; width:34px; height:34px; display:grid; place-items:center; color:var(--red); border:1px solid rgba(238,61,45,.18); border-radius:50%; background:rgba(238,61,45,.06); cursor:pointer; }
+.side-nav { grid-row:3; display:flex; flex-direction:column; align-items:center; padding:38px 0 20px; border-right:1px solid rgba(246,240,216,.09); background:rgba(2,5,3,.28); position:relative; z-index:3; }
+.nav-flame { width:38px; height:46px; margin:0 0 13px; display:grid; place-items:center; animation:flameRise 2.2s ease-in-out infinite; }
+.nav-flame img { width:34px; height:42px; display:block; object-fit:contain; filter:drop-shadow(0 0 9px rgba(248,201,45,.38)); animation:flameFlicker 1.05s ease-in-out infinite alternate; }
+.side-nav button { width:62px; min-height:64px; margin:3px 0; display:grid; place-items:center; align-content:center; gap:5px; color:rgba(246,240,216,.3); border:1px solid transparent; border-radius:18px; background:transparent; cursor:pointer; transition:.25s; position:relative; }
+.side-nav button::before { content:''; position:absolute; left:-12px; width:3px; height:0; background:var(--gold); box-shadow:0 0 12px var(--gold); transition:.25s; }
+.side-nav button span { font-size:20px; }
+.side-nav button small { font:600 7px/1 var(--font-geist-mono); letter-spacing:.08em; text-transform:uppercase; }
+.side-nav button:hover,.side-nav button.active { color:var(--gold); border-color:rgba(248,201,45,.14); background:rgba(248,201,45,.055); }
+.side-nav button.active::before { height:28px; }
+.nav-lion { width:45px; height:45px; margin-top:auto; display:grid; place-items:center; border:1px solid rgba(248,201,45,.13); border-radius:17px; background:radial-gradient(circle,rgba(248,201,45,.09),transparent 72%); box-shadow:0 0 24px rgba(248,201,45,.035); }
+.nav-lion img { width:35px; height:35px; display:block; object-fit:contain; filter:drop-shadow(0 4px 7px rgba(0,0,0,.55)); animation:lionBreathe 3.6s ease-in-out infinite; }
+
+.content-stage { grid-row:3; position:relative; min-width:0; overflow:hidden; padding:clamp(45px,8vh,96px) clamp(38px,5vw,82px) 96px; }
+.content-stage::before { content:''; position:absolute; inset:0; background:linear-gradient(90deg,rgba(3,6,4,.98) 0%,rgba(3,7,5,.7) 38%,rgba(3,7,5,.05) 72%); z-index:-1; }
+.hero-copy { max-width:640px; position:relative; z-index:3; animation:copyIn .65s ease both; }
+.eyebrow { margin:0 0 27px; display:flex; align-items:center; gap:10px; color:var(--gold); font:650 9px/1 var(--font-geist-mono); letter-spacing:.2em; }
+.eyebrow span { width:24px; height:1px; background:var(--gold); }
+.hero-copy h1 { margin:0; text-transform:uppercase; font-size:clamp(56px,7.2vw,118px); font-weight:950; line-height:.78; letter-spacing:-.085em; }
+.hero-copy h1 span,.hero-copy h1 em { display:block; font-style:normal; }
+.hero-copy h1 em { color:transparent; -webkit-text-stroke:1px rgba(246,240,216,.72); margin-left:clamp(18px,3.5vw,56px); }
+.hero-description { max-width:490px; margin:34px 0 0; color:rgba(246,240,216,.55); font-size:13px; line-height:1.8; letter-spacing:.02em; }
+.hero-actions { margin-top:34px; display:flex; align-items:center; gap:24px; }
+.hero-actions>button { display:flex; align-items:center; justify-content:center; gap:12px; padding:14px 20px; color:#030504; border:0; border-radius:999px; background:var(--gold); cursor:pointer; font:750 9px/1 var(--font-geist-mono); letter-spacing:.14em; box-shadow:0 8px 26px rgba(248,201,45,.14); }
+.hero-actions>button span { font-size:10px; }
+.live-badge { padding:10px 14px; color:rgba(246,240,216,.42); border:1px solid rgba(238,61,45,.14); border-radius:999px; background:rgba(238,61,45,.04); font:600 8px/1 var(--font-geist-mono); letter-spacing:.16em; }
+.live-badge span { display:inline-block; width:6px; height:6px; margin-right:7px; border-radius:50%; background:var(--red); box-shadow:0 0 11px var(--red); animation:pulse 1.3s infinite; }
+.visual-core { position:absolute; width:min(64vw,900px); aspect-ratio:1; right:-12%; top:50%; transform:translateY(-48%); opacity:.9; }
+.sun-disc { position:absolute; width:45%; aspect-ratio:1; border-radius:50%; top:26%; left:29%; background:radial-gradient(circle at 42% 36%,#ffe779 0,#f4c224 22%,#dc5a1d 58%,rgba(238,61,45,.05) 72%); box-shadow:0 0 100px rgba(248,201,45,.22),inset -35px -28px 65px rgba(94,11,0,.46); filter:saturate(1.25); }
+.sun-disc::after { content:''; position:absolute; inset:7%; border-radius:50%; background:repeating-linear-gradient(0deg,transparent 0 9px,rgba(66,10,0,.18) 10px 12px); mask-image:linear-gradient(to bottom,transparent 14%,black 48%); }
+.planet-globe { position:absolute; z-index:2; width:35%; height:35%; top:32.5%; left:32.5%; object-fit:contain; filter:drop-shadow(0 30px 45px rgba(0,0,0,.62)) drop-shadow(0 0 28px rgba(248,201,45,.14)); animation:globeFloat 8s ease-in-out infinite; }
+.speaker-ring { position:absolute; border-radius:50%; border:1px solid rgba(248,201,45,.18); top:50%; left:50%; transform:translate(-50%,-50%); }
+.ring-one { width:57%; aspect-ratio:1; box-shadow:0 0 50px rgba(248,201,45,.06); animation:ringPulse 4s ease-in-out infinite; }
+.ring-two { width:73%; aspect-ratio:1; border-style:dashed; animation:orbit 30s linear infinite; }
+.ring-three { width:88%; aspect-ratio:1; border-color:rgba(4,217,118,.08); animation:ringPulse 4s 1s ease-in-out infinite; }
+.core-word { position:absolute; inset:0; display:grid; place-items:center; color:rgba(5,8,6,.86); font-size:clamp(48px,6vw,94px); font-weight:950; letter-spacing:-.08em; transform:rotate(-7deg); text-shadow:0 2px 0 rgba(255,255,255,.08); }
+.palm { position:absolute; width:33%; height:50%; bottom:10%; z-index:2; filter:drop-shadow(0 12px 18px rgba(0,0,0,.55)); }
+.palm::before { content:''; position:absolute; width:8%; height:72%; left:48%; bottom:-20%; background:linear-gradient(90deg,#020403,#0b1a11,#020403); transform:rotate(8deg); transform-origin:bottom; }
+.palm i { position:absolute; width:55%; height:12%; left:48%; top:20%; transform-origin:left center; border-radius:100% 0 100% 0; background:linear-gradient(90deg,#0e2a1b,#020503); }
+.palm i:nth-child(1){transform:rotate(-76deg)}.palm i:nth-child(2){transform:rotate(-42deg)}.palm i:nth-child(3){transform:rotate(-8deg)}.palm i:nth-child(4){transform:rotate(28deg)}.palm i:nth-child(5){transform:rotate(60deg)}
+.palm-left { left:3%; transform:rotate(-17deg); }.palm-right { right:2%; transform:scaleX(-1) rotate(-13deg); }
+.frequency { position:absolute; left:5%; right:5%; height:1px; background:linear-gradient(90deg,transparent,var(--green),transparent); opacity:.25; }
+.frequency-a { top:32%; animation:scan 5s linear infinite; }.frequency-b { bottom:24%; background:linear-gradient(90deg,transparent,var(--red),transparent); animation:scan 7s linear infinite reverse; }
+.footer-stats { position:absolute; left:clamp(38px,5vw,82px); bottom:30px; z-index:4; display:flex; gap:clamp(28px,4vw,62px); }
+.footer-stats div { padding:11px 14px; border:1px solid rgba(246,240,216,.1); border-radius:15px; background:rgba(255,255,255,.025); backdrop-filter:blur(10px); }
+.footer-stats small { display:block; margin-bottom:7px; color:rgba(246,240,216,.3); font:600 7px/1 var(--font-geist-mono); letter-spacing:.16em; }
+.footer-stats strong { font:700 12px/1 var(--font-geist-mono); letter-spacing:.04em; }.footer-stats em { color:var(--gold); font-size:8px; font-style:normal; }
+
+.profile-panel { grid-row:3; margin:14px 0 14px 0; padding:24px 28px; border:1px solid rgba(246,240,216,.09); border-right:0; border-radius:28px 0 0 28px; background:linear-gradient(180deg,rgba(6,16,10,.72),rgba(2,5,3,.65)); backdrop-filter:blur(20px); position:relative; z-index:4; }
+.profile-card { display:flex; gap:15px; align-items:center; padding:15px; border:1px solid rgba(246,240,216,.09); border-radius:20px; background:rgba(255,255,255,.022); }
+.avatar-wrap { position:relative; flex:0 0 auto; }
+.avatar-link { display:block; width:62px; height:62px; padding:2px; border-radius:50%; background:conic-gradient(from 15deg,var(--green),var(--gold),var(--red),var(--green)); box-shadow:0 0 34px rgba(4,217,118,.16); transition:transform .25s ease,box-shadow .25s ease; }
+.avatar-link:hover { transform:scale(1.06); box-shadow:0 0 38px rgba(248,201,45,.22); }
+.avatar { width:100%; height:100%; display:block; border-radius:50%; object-fit:cover; border:2px solid #070a08; background:radial-gradient(circle,#164e31,#030504 66%); }
+.presence { position:absolute; width:10px; height:10px; right:1px; bottom:4px; border:2px solid #07110b; border-radius:50%; background:var(--green); box-shadow:0 0 10px var(--green); }
+.profile-role { color:var(--gold); font:700 7px/1 var(--font-geist-mono); letter-spacing:.17em; }
+.profile-card h2 { margin:5px 0; font-size:17px; letter-spacing:-.02em; }.profile-card h2 i { color:var(--green); font-size:10px; font-style:normal; }
+.profile-card p { margin:0; color:rgba(246,240,216,.32); font:600 7px/1 var(--font-geist-mono); letter-spacing:.11em; }.profile-card p span { display:inline-block; width:5px; height:5px; margin-right:5px; border-radius:50%; background:var(--green); }
+.music-card { margin-top:18px; padding:20px; overflow:hidden; border:1px solid rgba(246,240,216,.11); border-radius:24px; background:rgba(255,255,255,.022); }
+.music-heading { display:flex; align-items:center; gap:13px; }
+.station-logo { flex:none; width:58px; height:58px; object-fit:contain; filter:drop-shadow(0 8px 12px rgba(0,0,0,.45)); transition:filter .3s ease,transform .3s ease; }
+.station-logo.on-air { filter:drop-shadow(0 0 12px rgba(4,217,118,.45)) drop-shadow(0 0 18px rgba(248,201,45,.24)); animation:stationPulse 1.8s ease-in-out infinite; }
+.vinyl { flex:none; width:42px; height:42px; display:grid; place-items:center; border-radius:50%; background:repeating-radial-gradient(circle,#030403 0 2px,#121713 3px 4px); }
+.vinyl.spinning { animation:orbit 5s linear infinite; }.vinyl span { width:13px; height:13px; border:3px solid var(--gold); border-radius:50%; background:var(--red); }
+.music-heading small { color:var(--green); font:650 7px/1 var(--font-geist-mono); letter-spacing:.15em; }.music-heading h3 { margin:5px 0 2px; font-size:13px; }.music-heading p { margin:0; color:rgba(246,240,216,.29); font:500 7px/1 var(--font-geist-mono); letter-spacing:.09em; }
+.track-progress { height:3px; overflow:hidden; border-radius:999px; background:rgba(246,240,216,.12); }.track-progress span { display:block; width:28%; height:100%; border-radius:inherit; background:linear-gradient(90deg,var(--green),var(--gold)); }.track-progress span.moving { animation:progress 12s linear infinite; }
+.player-controls { display:flex; justify-content:center; align-items:center; gap:19px; margin-top:15px; }.player-controls button { color:rgba(246,240,216,.42); border:0; background:transparent; cursor:pointer; }.player-controls .play-button { width:36px; height:36px; display:grid; place-items:center; color:#040705; border-radius:50%; background:var(--gold); font-size:10px; }
+.player-controls button:disabled { opacity:.28; cursor:default; }
+.stream-error { margin:12px 0 0; color:var(--red); text-align:center; font:650 7px/1 var(--font-geist-mono); letter-spacing:.14em; }
+.clock-card { margin-top:17px; padding:18px 20px; border:1px solid rgba(246,240,216,.1); border-radius:20px; background:linear-gradient(135deg,rgba(4,217,118,.045),rgba(255,255,255,.015)); }
+.clock-card small { color:rgba(246,240,216,.3); font:600 7px/1 var(--font-geist-mono); letter-spacing:.15em; }.clock-card strong { display:block; margin-top:7px; color:var(--cream); font:700 25px/1 var(--font-geist-mono); letter-spacing:-.05em; }
+.calendar-line { margin-top:15px; padding-top:12px; display:flex; justify-content:space-between; border-top:1px solid rgba(246,240,216,.08); color:rgba(246,240,216,.48); font:600 9px/1 var(--font-geist-mono); text-transform:uppercase; }.calendar-line i { color:var(--red); font-style:normal; }
+.side-quote { margin:22px 4px 0; color:rgba(246,240,216,.2); font:500 7px/1.8 var(--font-geist-mono); letter-spacing:.11em; }
+
+.player-spectrum { position:relative; margin:17px 0 12px; padding:11px 11px 10px; overflow:hidden; border:1px solid rgba(4,217,118,.14); border-radius:17px; background:linear-gradient(135deg,rgba(3,12,8,.88),rgba(7,19,12,.62)); box-shadow:inset 0 0 25px rgba(4,217,118,.025); }
+.player-spectrum::before { content:''; position:absolute; inset:0; pointer-events:none; background:linear-gradient(rgba(4,217,118,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(4,217,118,.045) 1px,transparent 1px); background-size:11px 11px; mask-image:linear-gradient(to bottom,transparent 0,black 30%,black); }
+.spectrum-now { position:relative; z-index:2; display:flex; align-items:center; gap:13px; min-width:0; }
+.spectrum-now>img { width:46px; height:46px; flex:none; display:block; object-fit:contain; border:1px solid rgba(248,201,45,.2); border-radius:13px; background:#070a08; box-shadow:0 9px 18px rgba(0,0,0,.38); }
+.track-data { flex:1; min-width:0; overflow:hidden; }
+.track-data small { display:flex; align-items:center; gap:7px; color:var(--green); font:700 7px/1 var(--font-geist-mono); letter-spacing:.18em; }
+.track-data small span { width:6px; height:6px; flex:none; border-radius:50%; background:var(--red); box-shadow:0 0 10px var(--red); animation:pulse 1.3s infinite; }
+.track-marquee { width:100%; margin:7px 0 6px; overflow:hidden; white-space:nowrap; mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent); }
+.track-marquee strong { display:inline-block; min-width:max-content; padding-left:100%; color:var(--cream); font-size:9px; letter-spacing:.015em; animation:trackMarquee 15s linear infinite; }
+.track-data p { margin:0; color:rgba(246,240,216,.27); font:600 6px/1 var(--font-geist-mono); letter-spacing:.13em; }
+.spectrum-grid { position:relative; z-index:2; height:45px; margin-top:9px; padding:6px 7px 4px; display:flex; align-items:end; gap:2px; overflow:hidden; border:1px solid rgba(248,201,45,.08); border-radius:12px; background:linear-gradient(90deg,rgba(4,217,118,.03),rgba(248,201,45,.025),rgba(238,61,45,.03)); }
+.spectrum-grid::after { content:''; position:absolute; left:0; right:0; top:50%; height:1px; background:linear-gradient(90deg,transparent,rgba(248,201,45,.24),transparent); box-shadow:0 0 12px rgba(248,201,45,.2); }
+.spectrum-grid i { flex:1; height:24%; border-radius:4px 4px 1px 1px; background:linear-gradient(to top,var(--green) 0 56%,var(--gold) 72%,var(--red)); opacity:.38; transform-origin:bottom; }
+.spectrum-grid i:nth-child(3n) { height:44%; }.spectrum-grid i:nth-child(5n) { height:72%; }.spectrum-grid i:nth-child(7n) { height:88%; }.spectrum-grid i:nth-child(11n) { height:58%; }
+.player-spectrum.is-playing .spectrum-grid i { opacity:.95; animation:spectrumBeat .52s ease-in-out infinite alternate; }
+.player-spectrum.is-playing .spectrum-grid i:nth-child(3n) { animation-duration:.39s; }.player-spectrum.is-playing .spectrum-grid i:nth-child(4n) { animation-duration:.7s; }.player-spectrum.is-playing .spectrum-grid i:nth-child(5n) { animation-duration:.46s; }.player-spectrum.is-playing .spectrum-grid i:nth-child(7n) { animation-delay:-.31s; }
+
+.content-stage:has(.media-hub) { padding:36px clamp(24px,3.5vw,54px) 34px; overflow:hidden; }
+.media-hub { position:relative; z-index:6; height:100%; overflow:auto; scrollbar-width:thin; scrollbar-color:rgba(248,201,45,.35) transparent; animation:copyIn .65s ease both; }
+.media-header { display:flex; align-items:end; gap:clamp(24px,4vw,58px); padding:0 2px 22px; }
+.media-header .eyebrow { position:absolute; top:3px; left:2px; }
+.media-header h1 { flex:none; margin:25px 0 0; text-transform:uppercase; font-size:clamp(39px,4.4vw,68px); font-weight:950; line-height:.78; letter-spacing:-.075em; }
+.media-header h1 span,.media-header h1 em { display:block; font-style:normal; }.media-header h1 em { color:transparent; -webkit-text-stroke:1px rgba(246,240,216,.7); margin-left:22px; }
+.media-header>p:last-child { max-width:430px; margin:0 0 3px; color:rgba(246,240,216,.46); font-size:11px; line-height:1.7; }
+.video-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:13px; }
+.video-card { overflow:hidden; min-width:0; border:1px solid rgba(246,240,216,.1); border-radius:22px; background:rgba(255,255,255,.025); box-shadow:0 14px 36px rgba(0,0,0,.26); transition:transform .25s,border-color .25s; }
+.video-card:hover { transform:translateY(-4px); border-color:rgba(248,201,45,.3); }
+.video-card iframe { width:100%; aspect-ratio:16/9; display:block; border:0; background:#020302; }
+.video-card>div { min-height:78px; padding:13px 14px 15px; }.video-card small { color:var(--green); font:700 6px/1 var(--font-geist-mono); letter-spacing:.16em; }.video-card h2 { margin:7px 0 0; color:rgba(246,240,216,.78); font-size:10px; line-height:1.4; font-weight:650; }
+.social-grid { margin-top:16px; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:11px; }
+.social-grid a { min-width:0; padding:12px 13px; display:flex; align-items:center; gap:10px; color:inherit; border:1px solid rgba(246,240,216,.09); border-radius:18px; background:linear-gradient(135deg,rgba(4,217,118,.045),rgba(255,255,255,.018)); text-decoration:none; transition:transform .25s,border-color .25s,background .25s; }
+.social-grid a:hover { transform:translateY(-2px); border-color:rgba(4,217,118,.3); background:rgba(4,217,118,.07); }
+.social-grid i { width:30px; height:30px; flex:none; display:grid; place-items:center; color:#061009; border-radius:11px; background:linear-gradient(135deg,var(--gold),var(--green)); font:900 13px/1 Arial; font-style:normal; }
+.social-grid span { min-width:0; }.social-grid small,.social-grid strong { display:block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }.social-grid small { color:rgba(246,240,216,.3); font:600 6px/1 var(--font-geist-mono); letter-spacing:.14em; text-transform:uppercase; }.social-grid strong { margin-top:5px; color:rgba(246,240,216,.75); font-size:8px; }
+.social-grid b { margin-left:auto; color:var(--gold); font-size:11px; }
+
+@keyframes orbit { to { transform:rotate(360deg); } }@keyframes lionRotate { 0%{transform:rotateX(-4deg) rotateY(0)}50%{transform:rotateX(4deg) rotateY(180deg) scale(1.035)}100%{transform:rotateX(-4deg) rotateY(360deg)} }@keyframes floatGlow { 50% { transform:translate(5%,-8%) scale(1.08); } }@keyframes grain { 0%{transform:translate(0)}25%{transform:translate(2%,-1%)}50%{transform:translate(-1%,2%)}75%{transform:translate(1%,1%)}100%{transform:translate(-2%,-1%)} }@keyframes pulse { 50%{opacity:.35;transform:scale(.7)} }@keyframes ringPulse { 50%{transform:translate(-50%,-50%) scale(1.03);opacity:.45} }@keyframes scan { 50%{transform:translateY(70px);opacity:.45} }@keyframes copyIn { from{opacity:0;transform:translateY(18px)} }@keyframes equalize { to{transform:scaleY(.25)} }@keyframes progress { from{width:0}to{width:100%} }@keyframes logoFloat { 50%{transform:translateY(-7px) scale(1.015)} }@keyframes globeFloat { 0%,100%{transform:perspective(900px) rotateY(-5deg) translateY(0)}50%{transform:perspective(900px) rotateY(7deg) translateY(-12px) scale(1.025)} }@keyframes brandAura { 50%{opacity:.42;transform:scale(1.13) rotate(12deg)} }@keyframes stationPulse { 50%{transform:scale(1.05)} }
+@keyframes planetTurn { from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(360deg)} }
+@keyframes solarOrbit { to{offset-distance:100%} }
+@keyframes trackMarquee { from{transform:translateX(0)}to{transform:translateX(-100%)} }
+@keyframes spectrumBeat { to{transform:scaleY(.18);filter:brightness(1.45)} }
+@keyframes flameRise { 50%{transform:translateY(-3px) scale(.96,1.04)} }
+@keyframes flameFlicker { to{transform:rotate(-2deg) scale(.92,1.07);filter:drop-shadow(0 0 13px rgba(248,201,45,.55)) brightness(1.1)} }
+@keyframes lionBreathe { 50%{transform:scale(1.1);filter:drop-shadow(0 0 8px rgba(248,201,45,.3)) saturate(1.05)} }
+
+@media (max-width:1120px) {
+  .dashboard { grid-template-columns:76px minmax(0,1fr) 290px; }.profile-panel { padding-inline:20px; }.content-stage { padding-inline:42px; }.visual-core { right:-25%; opacity:.65; }.hero-copy h1 { font-size:clamp(54px,7vw,82px); }.video-grid,.social-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }.media-hub { padding-right:5px; }
+}
+@media (max-width:860px) {
+  .theme-planet { top:43%; }.theme-planet:nth-child(1) { --orbit-width:330px; --orbit-height:180px; }.theme-planet:nth-child(2) { --orbit-width:410px; --orbit-height:220px; }.theme-planet:nth-child(3) { --orbit-width:490px; --orbit-height:260px; }.theme-planet:nth-child(4) { --orbit-width:570px; --orbit-height:300px; }.theme-planet:nth-child(5) { --orbit-width:650px; --orbit-height:340px; }.theme-planet:nth-child(6) { --orbit-width:730px; --orbit-height:380px; }.orbit-body { width:92px; }.theme-globe { width:54px; height:54px; }.theme-globe img { width:102px; height:102px; }.theme-planet small { max-width:92px; padding:5px 7px; font-size:6px; }
+  body { overflow:auto; }.dashboard { min-height:100svh; grid-template:54px 70px 1fr auto/64px minmax(0,1fr); }.topbar { grid-column:1/-1; grid-row:2; padding:0 17px; grid-template-columns:1fr auto; }.top-status { grid-column:2; }.side-nav { grid-row:3/5; }.side-nav button { width:54px; }.content-stage { grid-row:3; min-height:760px; padding:64px 30px 100px; }.profile-panel { grid-column:2; grid-row:4; display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:0; padding:24px 26px 38px; border-right:1px solid rgba(246,240,216,.09); border-bottom:0; border-radius:28px 28px 0 0; }.profile-card { grid-column:1/-1; }.music-card,.clock-card { margin-top:0; }.side-quote { display:none; }.visual-core { width:720px; right:-320px; }.footer-stats { left:30px; }.content-stage:has(.media-hub) { min-height:860px; padding:34px 26px; }.media-header { align-items:flex-start; flex-direction:column; gap:15px; }.media-header>p:last-child { max-width:620px; }.media-header h1 { margin-top:27px; }
+}
+@media (max-width:600px) {
+  .copyright-lion { right:10px; bottom:78px; max-width:215px; padding:6px 8px; text-align:center; font-size:10px; line-height:1.35; }
+  .theme-planet { top:42%; }.theme-planet:nth-child(1) { --orbit-width:170px; --orbit-height:112px; }.theme-planet:nth-child(2) { --orbit-width:210px; --orbit-height:140px; }.theme-planet:nth-child(3) { --orbit-width:250px; --orbit-height:168px; }.theme-planet:nth-child(4) { --orbit-width:290px; --orbit-height:196px; }.theme-planet:nth-child(5) { --orbit-width:325px; --orbit-height:224px; }.theme-planet:nth-child(6) { --orbit-width:360px; --orbit-height:252px; }.orbit-body { width:62px; gap:3px; }.theme-globe { width:38px; height:38px; }.theme-globe img { width:72px; height:72px; }.theme-planet small { max-width:62px; padding:4px 5px; font-size:5px; letter-spacing:.04em; }
+  .boot-origin { bottom:66px; transform:translateX(-50%) scale(.82); transform-origin:bottom center; }.boot-kicker { max-width:270px; text-align:center; line-height:1.6; }.boot-logo { width:min(64vw,260px); }.boot-caption { max-width:290px; text-align:center; line-height:1.6; letter-spacing:.12em; }.start-button { min-width:270px; }.dashboard { grid-template:48px 64px 1fr auto 70px/1fr; }.topbar { grid-row:2; }.lion-spinner { width:104px; height:48px; }.lion-face img { width:102px; height:48px; }.top-status .signal,.top-status>span:nth-child(2) { display:none; }.side-nav { grid-column:1; grid-row:5; position:sticky; bottom:0; height:70px; padding:0 6px; flex-direction:row; justify-content:space-around; border-right:0; border-top:1px solid rgba(246,240,216,.09); background:rgba(3,7,5,.96); }.nav-flame,.nav-lion { display:none; }.side-nav button { flex:1; min-width:0; min-height:58px; }.side-nav button::before { left:auto; bottom:-6px; width:28px; height:3px; }.side-nav button.active::before { height:3px; }.side-nav button small { font-size:6px; }.content-stage { grid-column:1; grid-row:3; min-height:780px; padding:58px 22px 110px; }.hero-copy h1 { font-size:54px; }.hero-copy h1 em { margin-left:14px; }.hero-description { max-width:310px; }.visual-core { width:590px; right:-330px; top:58%; opacity:.48; }.hero-actions { align-items:flex-start; flex-direction:column; gap:14px; }.footer-stats { left:22px; right:15px; bottom:28px; gap:16px; }.footer-stats div:nth-child(2) { display:none; }.profile-panel { grid-column:1; grid-row:4; grid-template-columns:1fr; padding:24px 20px 30px; }.music-card,.clock-card { max-width:none; }.content-stage:has(.media-hub) { min-height:1400px; padding:28px 18px; }.media-header h1 { font-size:41px; }.video-grid,.social-grid { grid-template-columns:1fr; }.video-card>div { min-height:66px; }.media-hub { overflow:visible; }
+}
+@media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms!important; animation-iteration-count:1!important; scroll-behavior:auto!important; transition-duration:.01ms!important; } }
+
+/* Encaixe em xatspace: mantém a área do menu xat e libera a rolagem. */
+html { overflow-x: hidden; }
+.video-card iframe { display:block; width:100%; aspect-ratio:16/9; border:0; }
+@media (max-height:700px) {
+  .boot-screen { place-content:start center; overflow-y:auto; padding:70px 16px 140px; }
+  .boot-logo { width:min(36vh,250px); }
+  .boot-caption { margin-bottom:18px; }
+  .boot-origin { position:relative; left:auto; bottom:auto; transform:none; margin-top:20px; }
+  .boot-status { position:relative; bottom:auto; margin-top:16px; }
+}
+@media (max-width:600px) {
+  .start-button { min-width:0; width:min(100%,300px); }
+  .hero-copy h1 { font-size:clamp(34px,9vw,54px); }
+  .side-nav { padding-bottom:env(safe-area-inset-bottom,0px); height:calc(70px + env(safe-area-inset-bottom,0px)); }
+}
+
+</style><style>
+.content-stage:has(.portfolio-hub){padding:32px clamp(20px,3vw,48px);min-height:780px;overflow:visible}
+.portfolio-hub{position:relative;z-index:5;width:100%;max-width:1250px;margin:auto}
+.portfolio-heading{margin-bottom:30px}.portfolio-heading .eyebrow{font-size:10px;letter-spacing:.18em}
+.portfolio-heading h1{margin:10px 0 16px;font-size:clamp(38px,5vw,68px);line-height:1.05;letter-spacing:-.04em;color:#f5eed7}
+.portfolio-heading>p:last-child{color:#b2bcb0;font-size:14px;line-height:1.8}
+.portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:20px}
+.portfolio-card{min-width:0;overflow:hidden;border:1px solid #b9a25b45;border-radius:18px;background:linear-gradient(145deg,#14251be8,#070e0bf5);box-shadow:0 14px 40px #0003;transition:transform .2s,border-color .2s}
+.portfolio-card:hover{transform:translateY(-4px);border-color:#d6bb64}
+.portfolio-art{position:relative;aspect-ratio:16/10;overflow:hidden;background:#0b160f}
+.portfolio-art img{display:block;width:100%;height:100%;object-fit:cover}
+.portfolio-art:after{content:'';position:absolute;inset:45% 0 0;background:linear-gradient(transparent,#07100be6)}
+.portfolio-art>span{position:absolute;z-index:1;bottom:16px;left:20px;color:#fff0b7;font-size:9px;font-weight:700;letter-spacing:.14em}
+.portfolio-copy{padding:22px}.portfolio-copy h2{font-size:23px;margin:0 0 12px;color:#f5eed7}.portfolio-copy p{min-height:66px;margin:0 0 24px;font-size:13px;line-height:1.7;color:#b9c4b8}
+.portfolio-actions{display:flex;align-items:center;flex-wrap:wrap;gap:16px}.portfolio-actions button{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:12px 18px;border:1px solid #a0cf7c66;border-radius:9px;background:#1b402c;color:#f3efcc;font:700 12px inherit;cursor:pointer}.portfolio-actions a{color:#ddca8b;font-size:11px;text-underline-offset:4px}
+.portfolio-actions button:hover{background:#286041}.portfolio-actions :focus-visible,.portfolio-close:focus-visible{outline:2px solid #ffdf78;outline-offset:4px}
+.portfolio-note{color:#93a692;font-size:11px;margin:26px 0 0;line-height:1.6}
+.portfolio-viewer{width:96vw;max-width:1800px;height:94dvh;max-height:94dvh;padding:0;border:1px solid #ad9957;border-radius:14px;color:#f5eed7;background:#06100a;overflow:hidden;box-shadow:0 20px 100px #000b}
+.portfolio-viewer::backdrop{background:#020906e8;backdrop-filter:blur(10px)}
+.portfolio-viewer[open]{display:flex;flex-direction:column}.portfolio-viewer>header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px;border-bottom:1px solid #b9a25b45;flex:none}.portfolio-viewer small{font-size:9px;letter-spacing:.15em;color:#b7be91}.portfolio-viewer h2{font-size:18px;margin:4px 0 0}.portfolio-close{padding:11px 14px;border:1px solid #b9a25b66;border-radius:8px;background:#16271c;color:#f5eed7;cursor:pointer;font-size:12px}.portfolio-frame{flex:1;min-height:0}.portfolio-frame iframe{display:block;width:100%;height:100%;border:0;background:#030504}
+body:has(.portfolio-viewer[open]){overflow:hidden}
+@media(max-width:600px){.content-stage:has(.portfolio-hub){min-height:0;padding:30px 18px 38px}.portfolio-grid{grid-template-columns:1fr}.portfolio-viewer{width:100%;max-width:100%;height:100dvh;max-height:100dvh;border:0;border-radius:0}.portfolio-viewer>header{padding:12px;gap:8px}.portfolio-close{font-size:11px;padding:10px}.side-nav button small{font-size:8px}.portfolio-copy p{min-height:0}}
+@media(prefers-reduced-motion:reduce){.portfolio-card{transition:none}.portfolio-card:hover{transform:none}}
+/* Nitidez nativa: tipografia e interface renderizadas na resolução da tela. */
+.system-started .dashboard{transform:none;filter:none}
+.portfolio-art img{image-rendering:auto}
+.portfolio-actions button{font-family:inherit;font-size:12px;font-weight:700}
+.portfolio-viewer{width:98vw;max-width:98vw;height:96dvh;max-height:96dvh}
+.portfolio-viewer.is-expanded{width:100vw;max-width:100vw;height:100dvh;max-height:100dvh;margin:0;border:0;border-radius:0}
+.portfolio-viewer-controls{display:flex;align-items:center;gap:10px}
+@media(min-width:1920px){
+ .portfolio-hub{max-width:2200px}
+ .portfolio-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+ .portfolio-copy{padding:28px}
+ .portfolio-copy h2{font-size:clamp(25px,1.1vw,38px)}
+ .portfolio-copy p{font-size:clamp(15px,.65vw,22px);min-height:76px}
+ .portfolio-heading>p:last-child{font-size:18px}
+ .portfolio-art>span{font-size:12px}
+ .portfolio-actions button{font-size:15px;padding:14px 22px}
+ .portfolio-actions a{font-size:13px}
+ .portfolio-note{font-size:14px}
+}
+@media(min-width:2560px){
+ .dashboard{grid-template-columns:112px minmax(0,1fr) 420px}
+ .side-nav button small{font-size:11px}
+ .content-stage:has(.portfolio-hub){padding:54px 64px}
+ .portfolio-heading h1{font-size:84px}
+ .portfolio-art{aspect-ratio:16/9}
+}
+@media(max-width:600px){.portfolio-viewer{width:100%;max-width:100%;height:100dvh;max-height:100dvh}.portfolio-viewer-controls{gap:6px}.portfolio-viewer-controls button{font-size:10px;padding:9px 7px}}
+/* IDs integrados ao painel Reggae. */
+.content-stage:has(.reggae-ids){padding:32px clamp(20px,3vw,48px);overflow:visible;min-height:760px}
+.reggae-ids{position:relative;z-index:5;width:100%;animation:copyIn .65s ease both}
+.reggae-ids .media-header{flex-wrap:wrap;align-items:start;gap:18px}.reggae-ids .media-header>p:last-child{max-width:430px;line-height:1.7;color:var(--muted);font-size:12px}
+.reggae-id-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:16px 0}
+.reggae-id-card{position:relative;overflow:hidden;min-width:0;padding:22px;border:1px solid #f6f0d826;border-radius:18px;background:linear-gradient(145deg,#0e2319ee,#050b08ee);transition:transform .25s,border-color .25s;box-shadow:0 15px 40px #0003}
+.reggae-id-card:hover{transform:translateY(-4px);border-color:var(--green)}.reggae-id-card.epic{border-color:#f8c92d66;background:radial-gradient(ellipse at top right,#f8c92d19,transparent 70%),#09170f}.reggae-id-card:before{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 35%,#f8c92d0c 50%,transparent 65%);transform:translateX(-100%);animation:idSheen 9s ease-in-out infinite}
+.id-card-top,.id-card-bottom{display:flex;justify-content:space-between;align-items:center;gap:8px;font-family:var(--font-geist-mono)}.id-card-top small{font-size:9px;color:var(--gold)}.id-card-top>span{font-size:8px;color:var(--green)}.reggae-id-card h2{font-size:clamp(27px,3.4vw,54px);font-weight:950;letter-spacing:-.055em;margin:25px 0;color:var(--cream)}.reggae-id-card.epic h2{color:var(--gold)}.id-card-bottom{border-top:1px solid #f6f0d819;padding-top:14px;font-size:8px;color:var(--muted)}.id-card-bottom button{border:0;background:var(--gold);color:#06120b;border-radius:20px;padding:10px 13px;font:700 8px var(--font-geist-mono);cursor:pointer}.reggae-id-card.sold{opacity:.65}.reggae-id-card.sold .id-card-top>span{color:var(--muted)}.id-copy-status{font:11px var(--font-geist-mono);min-height:16px;color:var(--green)}.id-contact{display:inline-block;color:var(--gold);font:700 10px var(--font-geist-mono);letter-spacing:.1em;padding:10px 0;text-underline-offset:5px}@keyframes idSheen{0%,60%{transform:translateX(-100%)}100%{transform:translateX(100%)}}@media(max-width:600px){.reggae-id-grid{grid-template-columns:1fr}.reggae-ids .media-header h1{font-size:43px}.reggae-id-card h2{font-size:42px}.content-stage:has(.reggae-ids){padding:30px 20px;min-height:0}}@media(prefers-reduced-motion:reduce){.reggae-id-card:before{animation:none}.reggae-id-card{transition:none}}
+.ids-available{margin-top:20px}.ids-available .epic{padding:28px}.id-offer{margin-bottom:24px;font-family:var(--font-geist-mono)}.id-offer>span{display:block;color:var(--muted);font-size:14px;margin-bottom:8px}.id-offer>strong{font-size:32px;color:var(--green)}.id-offer p{font-size:11px;color:var(--gold);line-height:1.6}.ids-archive{margin-top:48px;padding-top:28px;border-top:1px solid #f6f0d826}.ids-archive>h2{font:700 16px var(--font-geist-mono);color:var(--cream)}.ids-archive>p{font-size:12px;color:var(--muted)}
+
+</style>
+  
+</head>
+<body>
+  <!-- Versão estática legível preparada para GitHub Pages e xatframe. -->
+  <main class="site-shell" id="site-shell">
+    <audio id="radio-audio" src="https://stream3.svrdedicado.org:8302/stream" preload="none" crossorigin="anonymous" playsinline></audio>
+
+    <div class="ambient" aria-hidden="true">
+      <div class="ambient-glow ambient-glow-green"></div>
+      <div class="ambient-glow ambient-glow-gold"></div>
+      <div class="ambient-glow ambient-glow-red"></div>
+      <div class="film-grain"></div>
+    </div>
+
+    <section class="boot-screen" id="boot-screen" aria-hidden="false">
+      <div class="genre-planets" role="list" aria-label="Temas musicais do Planeta Reggae">
+        <div class="theme-planet" role="listitem"><div class="orbit-body"><span class="theme-globe" aria-hidden="true"><img src="assets/planeta-reggae-globe.png" alt=""></span><small>Dancehall</small></div></div>
+        <div class="theme-planet" role="listitem"><div class="orbit-body"><span class="theme-globe" aria-hidden="true"><img src="assets/planeta-reggae-globe.png" alt=""></span><small>Ska</small></div></div>
+        <div class="theme-planet" role="listitem"><div class="orbit-body"><span class="theme-globe" aria-hidden="true"><img src="assets/planeta-reggae-globe.png" alt=""></span><small>Rocksteady</small></div></div>
+        <div class="theme-planet" role="listitem"><div class="orbit-body"><span class="theme-globe" aria-hidden="true"><img src="assets/planeta-reggae-globe.png" alt=""></span><small>Reggae Roots</small></div></div>
+        <div class="theme-planet" role="listitem"><div class="orbit-body"><span class="theme-globe" aria-hidden="true"><img src="assets/planeta-reggae-globe.png" alt=""></span><small>New Roots</small></div></div>
+        <div class="theme-planet" role="listitem"><div class="orbit-body"><span class="theme-globe" aria-hidden="true"><img src="assets/planeta-reggae-globe.png" alt=""></span><small>Sound System Cultural</small></div></div>
+      </div>
+
+      <div class="boot-logo"><img src="assets/planeta-reggae-logo.png" alt="Planeta Reggae.com"></div>
+      <p class="boot-caption">Não vim pra me curvar, vim para conquistar</p>
+      <button class="start-button" id="start-button" type="button"><span>ENTRE NA VIBE</span><i aria-hidden="true">→</i></button>
+
+      <div class="boot-origin" aria-label="Brasil e Jamaica">
+        <div class="boot-flag" aria-hidden="true"><span></span></div>
+        <p class="boot-kicker">BRASIL / JAMAICA</p>
+      </div>
+      <div class="boot-status" aria-hidden="true"><span>VISUAL 4K</span><span class="status-dot"></span><span>ROOTS CONECTADO</span></div>
+    </section>
+
+    <section class="dashboard" aria-label="Painel Roots System">
+      <div class="xat-menu-safe" aria-hidden="true"></div>
+      <header class="topbar">
+        <div class="brand-mark" aria-label="Lion, identificação 17767">
+          <img class="brand-disc" src="assets/planeta-reggae-globe.png" alt="">
+          <span class="lion-spinner">
+            <span class="lion-face lion-front"><img src="assets/lion-17767.png" alt="Lion, identificação 17767"></span>
+            <span class="lion-face lion-back" aria-hidden="true"><img src="assets/lion-17767.png" alt=""></span>
+          </span>
+        </div>
+        <div class="top-status"><span class="signal" aria-hidden="true">⌁</span><span>100%</span><button id="lock-button" type="button" aria-label="Voltar à entrada">⏻</button></div>
+      </header>
+
+      <nav class="side-nav" aria-label="Navegação principal">
+        <div class="nav-flame" aria-hidden="true"><img src="assets/nav-flame.png" alt=""></div>
+        <button class="active" type="button" data-section="vibracao" aria-label="Vibração" aria-pressed="true"><span>⌂</span><small>Vibração</small></button>
+        <button type="button" data-section="ids" aria-label="IDs" aria-pressed="false"><span>◈</span><small>IDs</small></button>
+        <button type="button" data-section="ritmos" aria-label="Ritmos" aria-pressed="false"><span>♫</span><small>Ritmos</small></button>
+        <button type="button" data-section="conexao" aria-label="Conexão" aria-pressed="false"><span>⌁</span><small>Conexão</small></button>
+        <button type="button" data-section="midia" aria-label="Mídia" aria-pressed="false"><span>▶</span><small>Mídia</small></button>
+        <button type="button" data-section="portfolio" aria-label="Portfólio" aria-pressed="false"><span>▦</span><small>Portfólio</small></button><div class="nav-lion" aria-label="Símbolo do Lion"><img src="assets/nav-lion.png" alt="Leão dourado"></div>
+      </nav>
+
+      <section class="content-stage" id="content-stage" aria-live="polite">
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span>MOVIMENTO DO POVO DE JAH</p>
+          <h1><span>UM SÓ AMOR</span><em>UM SÓ CORAÇÃO</em></h1>
+          <p class="hero-description">Um xatspace criado para quem carrega a Jamaica no coração e o grave do reggae na alma.</p>
+          <div class="hero-actions"><button class="radio-toggle" type="button"><span>▶</span><b>SENTIR A VIBE</b></button><div class="live-badge"><span></span> SESSÃO AO VIVO</div></div>
+        </div>
+        <div class="visual-core" aria-hidden="true">
+          <div class="sun-disc"></div><div class="speaker-ring ring-one"></div><div class="speaker-ring ring-two"></div><div class="speaker-ring ring-three"></div>
+          <img class="planet-globe" src="assets/planeta-reggae-globe-hero.png" alt="">
+          <div class="palm palm-left"><i></i><i></i><i></i><i></i><i></i></div><div class="palm palm-right"><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="frequency frequency-a"></div><div class="frequency frequency-b"></div>
+        </div>
+        <div class="footer-stats"><div><small>FREQUÊNCIA</small><strong>96.0<em> FM</em></strong></div><div><small>ORIGEM</small><strong>KINGSTON<em> JA</em></strong></div><div><small>ENERGIA</small><strong>POSITIVA<em> 100%</em></strong></div></div>
+      </section>
+
+      <aside class="profile-panel">
+        <div class="profile-card">
+          <div class="avatar-wrap"><a class="avatar-link" href="https://xat.me/Lion" target="_blank" rel="noreferrer" aria-label="Abrir o perfil Lion no xat"><img class="avatar" id="xat-avatar" src="https://xatimg.com/image/rQ4RqinIaDXx.gif" alt="GIF de perfil do Lion no xat" referrerpolicy="no-referrer"></a><span class="presence"></span></div>
+          <div><span class="profile-role">APRESENTADOR ROOTS • XAT 17767</span><h2>Lion <i>✓</i></h2><p><span></span> CONECTADO • XAT SINCRONIZADO</p></div>
+        </div>
+
+        <div class="music-card">
+          <div class="music-heading"><img class="station-logo" id="station-logo" src="assets/planeta-reggae-logo.png" alt="Logo Planeta Reggae"><div><small>STREAMING AO VIVO</small><h3>Planeta Reggae</h3><p>ROOTS • REGGAE • DUB</p></div></div>
+          <section class="player-spectrum" id="player-spectrum" aria-label="Música e espectro do streaming ao vivo">
+            <div class="spectrum-now"><img id="track-artwork" src="assets/planeta-reggae-logo.png" alt="Capa da música atual"><div class="track-data"><small><span></span><b id="radio-state">RÁDIO PLANETA REGGAE</b></small><div class="track-marquee"><strong id="track-title">Planeta Reggae — música sem fronteiras</strong></div><p>STREAMING 320 KBPS • SINAL AO VIVO</p></div></div>
+            <div class="spectrum-grid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </section>
+          <div class="track-progress"><span id="track-progress"></span></div>
+          <div class="player-controls"><button type="button" aria-label="Streaming contínuo" disabled>‹|</button><button class="play-button radio-toggle" type="button" aria-label="Reproduzir">▶</button><button type="button" aria-label="Streaming contínuo" disabled>|›</button></div>
+          <p class="stream-error" id="stream-error" role="status" hidden></p>
+        </div>
+
+        <div class="clock-card"><div><small>HORA LOCAL // BRT</small><strong id="local-time">--:--:--</strong></div><div class="calendar-line"><span id="local-date">-- --- ----</span><i>◫</i></div></div>
+        <p class="side-quote">“UMA COISA BOA SOBRE A MÚSICA:<br>QUANDO ELA TE ATINGE, VOCÊ NÃO SENTE DOR.”</p>
+      </aside>
+    </section>
+    <p class="copyright-lion">© 2026 LION (17767) • TODOS OS DIREITOS RESERVADOS</p>
+  </main>
+<script>
+/* Portfólio integrado ao Planeta Reggae. As páginas só carregam ao abrir. */
+const xatspaceProjects = [
+  { id: 'emerald', title: 'Lion Emerald', category: 'ESMERALDA · FANTASIA', description: 'Magia, joias e uma nave entre luzes de esmeralda e ouro.', image: 'portfolio/emerald/assets/emerald-chamber-ufo-bg-v2.webp', version: '13/10/2026' },
+  { id: 'luks', title: 'LUKZ · Anime', category: 'ANIME · SHINOBI', description: 'Naruto e Sasuke abrem uma jornada de batalhas e evolução.', image: 'portfolio/luks/assets/naruto-vs-sasuke-intro.png', version: '06/09/2026' },
+  { id: 'game-of-thrones', title: 'Game of Thrones', category: 'GELO · FOGO', description: 'Atravesse os portões de um reino de dragões e paisagens de inverno.', image: 'assets/portfolio-winter.png', version: '09/10/2026' }
+];
+
+const portfolioDialog = document.createElement('dialog');
+portfolioDialog.className = 'portfolio-viewer';
+portfolioDialog.setAttribute('aria-labelledby', 'portfolio-viewer-title');
+portfolioDialog.innerHTML = `<header><div><small>PORTFÓLIO / LION</small><h2 id="portfolio-viewer-title"></h2></div><div class="portfolio-viewer-controls"><button type="button" class="portfolio-close portfolio-expand" aria-pressed="false">Ampliar</button><button type="button" class="portfolio-close" aria-label="Fechar e voltar ao portfólio">Voltar ao portfólio ×</button></div></header><div class="portfolio-frame"></div>`;
+document.body.append(portfolioDialog);
+portfolioDialog.querySelector('button:not(.portfolio-expand)').addEventListener('click', () => portfolioDialog.close());
+portfolioDialog.querySelector('.portfolio-expand').addEventListener('click', event => {
+ const expanded = portfolioDialog.classList.toggle('is-expanded');
+ event.currentTarget.setAttribute('aria-pressed', String(expanded));
+ event.currentTarget.textContent = expanded ? 'Reduzir' : 'Ampliar';
+});
+portfolioDialog.addEventListener('close', () => portfolioDialog.querySelector('.portfolio-frame').replaceChildren());
+portfolioDialog.addEventListener('click', event => { if (event.target === portfolioDialog) portfolioDialog.close(); });
+
+function pausePortfolioRadio() {
+  if (!audio.paused || wantsPlayback) {
+    wantsPlayback = false;
+    audio.pause();
+  }
+}
+
+function renderPortfolio() {
+  contentStage.innerHTML = `<div class="portfolio-hub"><header class="portfolio-heading"><p class="eyebrow"><span></span>CRIAÇÕES / LION</p><h1 tabindex="-1">Portfólio</h1><p>Três universos. A mesma vontade de criar.<br>Escolha um xatspace e entre na experiência.</p></header><div class="portfolio-grid">${xatspaceProjects.map(project => `<article class="portfolio-card"><div class="portfolio-art"><img src="${project.image}" alt="" loading="lazy"><span>${project.category}</span></div><div class="portfolio-copy"><h2>${project.title}</h2><p>${project.description}</p><div class="portfolio-actions"><button type="button" data-preview="${project.id}" aria-label="Explorar ${project.title}">Explorar <span aria-hidden="true">→</span></button><a href="portfolio/${project.id}/index.html" target="_blank" rel="noopener noreferrer" aria-label="Abrir ${project.title} em outra aba">Abrir em outra aba ↗</a></div></div></article>`).join('')}</div><p class="portfolio-note">Criado por Lion · Escolha um universo, descubra cada detalhe.</p></div>`;
+  contentStage.querySelector('h1').focus({ preventScroll: true });
+  contentStage.querySelectorAll('[data-preview]').forEach(button => button.addEventListener('click', () => {
+    const project = xatspaceProjects.find(item => item.id === button.dataset.preview);
+    pausePortfolioRadio();
+    portfolioDialog.querySelector('h2').textContent = project.title;
+    const frame = document.createElement('iframe');
+    frame.title = `Xatspace ${project.title}`;
+    frame.src = `portfolio/${project.id}/index.html`;
+    frame.allow = 'autoplay; fullscreen; picture-in-picture';
+    frame.setAttribute('allowfullscreen', '');
+    portfolioDialog.querySelector('.portfolio-frame').replaceChildren(frame);
+    portfolioDialog.showModal();
+  }));
+  contentStage.querySelectorAll('.portfolio-actions a').forEach(link => link.addEventListener('click', pausePortfolioRadio));
+}
+
+/* Planeta Reggae — código legível para GitHub Pages e revisão do xatframe. */
+
+const STREAM_URL = 'https://stream3.svrdedicado.org:8302/stream';
+const STATS_URL = 'https://stream3.svrdedicado.org:8302/stats?sid=1&json=1';
+const STATION_ARTWORK = 'assets/planeta-reggae-logo.png';
+const XAT_AVATAR_URL = 'https://xatimg.com/image/rQ4RqinIaDXx.gif';
+
+const panelCopy = {
+  vibracao: {
+    eyebrow: 'MOVIMENTO DO POVO DE JAH',
+    lineOne: 'UM SÓ AMOR',
+    lineTwo: 'UM SÓ CORAÇÃO',
+    description: 'Um xatspace criado para quem carrega a Jamaica no coração e o grave do reggae na alma.'
+  },
+  identidade: {
+    eyebrow: 'IDENTIDADE // 100% ORIGINAL',
+    lineOne: 'CORES REAIS',
+    lineTwo: 'ALMA LIVRE',
+    description: 'Verde para a terra, amarelo para o sol e vermelho para a força que mantém a cultura viva.'
+  },
+  ritmos: {
+    eyebrow: 'SISTEMA DE SOM // GRAVE AO VIVO',
+    lineOne: 'REGGAE ROOTS',
+    lineTwo: 'VIBRAÇÃO PURA',
+    description: 'Frequências profundas, ecos analógicos e a energia quente de uma sessão de sistema de som.'
+  },
+  conexao: {
+    eyebrow: 'CONEXÃO // RESPEITO A TODOS',
+    lineOne: 'GENTE DO BEM',
+    lineTwo: 'UMA SÓ ENERGIA',
+    description: 'Um espaço para amizade, respeito, música e boas vibrações — sempre na mesma frequência.'
+  }
+};
+
+const channelHighlights = [
+  ['HLmqIFeBp4c', 'Quando a música encontra a paisagem'],
+  ['AzhfTctxvdA', 'No Woman, No Cry — conexão com as raízes'],
+  ['ssaZbZH61a8', 'Jah I Ras — Live Solidária Bem da Madrugada'],
+  ['NPihi0Gq5rU', 'Boris Gardiner — You Just Got to Be in Love']
+];
+
+const socialLinks = [
+  ['YouTube', '@planetareggaeoficial', '▶', 'https://www.youtube.com/@planetareggaeoficial'],
+  ['Facebook', 'Cristiano Mineiro', 'f', 'https://www.facebook.com/cristianomineiromaneiro/'],
+  ['Instagram', '@planetareggaeofc', '◎', 'https://www.instagram.com/planetareggaeofc/'],
+  ['TikTok', '@planetareggae', '♪', 'https://www.tiktok.com/@planetareggae']
+];
+
+const siteShell = document.getElementById('site-shell');
+const bootScreen = document.getElementById('boot-screen');
+const contentStage = document.getElementById('content-stage');
+const audio = document.getElementById('radio-audio');
+const playerSpectrum = document.getElementById('player-spectrum');
+const stationLogo = document.getElementById('station-logo');
+const trackProgress = document.getElementById('track-progress');
+const streamError = document.getElementById('stream-error');
+
+let playing = false;
+let wantsPlayback = false;
+let retryTimer = null;
+let reconnectAttempt = 0;
+let lastMediaTime = 0;
+let lastProgressAt = Date.now();
+
+document.getElementById('start-button').addEventListener('click', () => {
+  siteShell.classList.add('system-started');
+  bootScreen.setAttribute('aria-hidden', 'true');
+});
+
+document.getElementById('lock-button').addEventListener('click', () => {
+  wantsPlayback = false;
+  audio.pause();
+  clearPlayerError();
+  siteShell.classList.remove('system-started');
+  bootScreen.setAttribute('aria-hidden', 'false');
+});
+
+document.querySelector('.side-nav').addEventListener('click', (event) => {
+  const button = event.target.closest('button[data-section]');
+  if (!button) return;
+
+  document.querySelectorAll('.side-nav button[data-section]').forEach((item) => {
+    const selected = item === button;
+    item.classList.toggle('active', selected);
+    item.setAttribute('aria-pressed', String(selected));
+  });
+
+  renderSection(button.dataset.section);
+});
+
+document.addEventListener('click', (event) => {
+  if (event.target.closest('.radio-toggle')) togglePlayback();
+});
+
+function renderSection(section) {
+  if (section === 'ids') {
+    const archive = ['100462221','1000088','1333331','1777777','44184'];
+    const promotion = Date.now() < Date.parse('2027-01-01T00:00:00-03:00');
+    contentStage.innerHTML = `<section class="reggae-ids"><header class="media-header"><p class="eyebrow"><span></span>LION // IDs DISPONÍVEIS</p><h1><span>SEU NÚMERO</span><em>SUA MARCA</em></h1><p>112233 é o único ID disponível para venda. Fale com Lion (17767) no xat.</p></header><div class="ids-available"><article class="reggae-id-card epic"><div class="id-card-top"><small>6 DIG EPIC</small><span>À VENDA</span></div><h2>112233</h2><div class="id-offer">${promotion?'<span>DE <del>200k</del></span><strong>POR 165k</strong><p>Desconto válido até 31 de dezembro de 2026.</p>':'<strong>200k</strong>'}</div><div class="id-card-bottom"><span>11 · 22 · 33</span><button type="button" data-copy-id="112233">COPIAR ID ↗</button></div></article></div><p class="id-copy-status" role="status" aria-live="polite"></p><a class="id-contact" href="https://xat.com/PlanetaReggae" target="_blank" rel="noopener noreferrer">FALAR COM LION NO XAT ↗</a><section class="ids-archive" aria-label="IDs fora de venda"><h2>COLEÇÃO / FORA DE VENDA</h2><p>Os IDs abaixo não estão disponíveis para compra.</p><div class="reggae-id-grid">${archive.map(id=>`<article class="reggae-id-card sold"><div class="id-card-top"><small>LION COLLECTION</small><span>${id==='44184'?'VENDIDO':'FORA DE VENDA'}</span></div><h2>${id}</h2><div class="id-card-bottom"><strong>INDISPONÍVEL</strong></div></article>`).join('')}</div></section></section>`;
+    contentStage.querySelectorAll('[data-copy-id]').forEach(button=>button.addEventListener('click',async()=>{const status=contentStage.querySelector('.id-copy-status');try{await navigator.clipboard.writeText(button.dataset.copyId);status.textContent=`ID ${button.dataset.copyId} copiado.`;}catch{status.textContent=`ID para copiar: ${button.dataset.copyId}`;}}));
+    return;
+  }
+  if (section === 'portfolio') { renderPortfolio(); return; }
+  if (section === 'midia') {
+    const videos = channelHighlights.map(([id, title]) => `
+      <article class="video-card">
+        <iframe src="https://www.youtube-nocookie.com/embed/${id}" title="${title}" loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <div><small>PLANETA REGGAE</small><h2>${title}</h2></div>
+      </article>`).join('');
+
+    const socials = socialLinks.map(([name, handle, icon, url]) => `
+      <a href="${url}" target="_blank" rel="noreferrer">
+        <i aria-hidden="true">${icon}</i><span><small>${name}</small><strong>${handle}</strong></span><b aria-hidden="true">↗</b>
+      </a>`).join('');
+
+    contentStage.innerHTML = `
+      <div class="media-hub">
+        <header class="media-header">
+          <p class="eyebrow"><span></span>PLANETA REGGAE // CANAL OFICIAL</p>
+          <h1><span>VÍDEOS EM</span><em>DESTAQUE</em></h1>
+          <p>Quatro vibrações escolhidas do canal, reunidas em uma experiência interna conectada às redes da Planeta Reggae.</p>
+        </header>
+        <div class="video-grid">${videos}</div>
+        <div class="social-grid" aria-label="Redes oficiais">${socials}</div>
+      </div>`;
+    return;
+  }
+
+  const copy = panelCopy[section] || panelCopy.vibracao;
+  contentStage.innerHTML = `
+    <div class="hero-copy">
+      <p class="eyebrow"><span></span>${copy.eyebrow}</p>
+      <h1><span>${copy.lineOne}</span><em>${copy.lineTwo}</em></h1>
+      <p class="hero-description">${copy.description}</p>
+      <div class="hero-actions">
+        <button class="radio-toggle" type="button"><span>${playing ? 'Ⅱ' : '▶'}</span><b>${playing ? 'PAUSAR VIBE' : 'SENTIR A VIBE'}</b></button>
+        <div class="live-badge"><span></span> SESSÃO AO VIVO</div>
+      </div>
+    </div>
+    <div class="visual-core" aria-hidden="true">
+      <div class="sun-disc"></div><div class="speaker-ring ring-one"></div><div class="speaker-ring ring-two"></div><div class="speaker-ring ring-three"></div>
+      <img class="planet-globe" src="assets/planeta-reggae-globe-hero.png" alt="">
+      <div class="palm palm-left"><i></i><i></i><i></i><i></i><i></i></div><div class="palm palm-right"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="frequency frequency-a"></div><div class="frequency frequency-b"></div>
+    </div>
+    <div class="footer-stats">
+      <div><small>FREQUÊNCIA</small><strong>96.0<em> FM</em></strong></div>
+      <div><small>ORIGEM</small><strong>KINGSTON<em> JA</em></strong></div>
+      <div><small>ENERGIA</small><strong>POSITIVA<em> 100%</em></strong></div>
+    </div>`;
+}
+
+function updateClock() {
+  const now = new Date();
+  document.getElementById('local-time').textContent = now.toLocaleTimeString('pt-BR', {
+    hour: '2-digit', minute: '2-digit', second: '2-digit'
+  });
+  document.getElementById('local-date').textContent = now.toLocaleDateString('pt-BR', {
+    day: '2-digit', month: 'short', year: 'numeric'
+  });
+}
+
+function setPlayerError(message) {
+  streamError.textContent = message;
+  streamError.hidden = !message;
+}
+
+function clearPlayerError() {
+  setPlayerError('');
+}
+
+function updatePlaybackControls() {
+  document.querySelectorAll('.radio-toggle').forEach((button) => {
+    if (button.classList.contains('play-button')) {
+      button.textContent = playing ? 'Ⅱ' : '▶';
+      button.setAttribute('aria-label', playing ? 'Pausar' : 'Reproduzir');
+      return;
+    }
+
+    const icon = button.querySelector('span');
+    const label = button.querySelector('b');
+    if (icon) icon.textContent = playing ? 'Ⅱ' : '▶';
+    if (label) label.textContent = playing ? 'PAUSAR VIBE' : 'SENTIR A VIBE';
+  });
+
+  playerSpectrum.classList.toggle('is-playing', playing);
+  stationLogo.classList.toggle('on-air', playing);
+  trackProgress.classList.toggle('moving', playing);
+}
+
+function clearRetry() {
+  if (retryTimer !== null) window.clearTimeout(retryTimer);
+  retryTimer = null;
+}
+
+function scheduleReconnect(delay = 2500) {
+  if (!wantsPlayback || retryTimer !== null) return;
+  setPlayerError('RECONECTANDO AO VIVO…');
+  retryTimer = window.setTimeout(() => {
+    retryTimer = null;
+    restartStream();
+  }, delay);
+}
+
+async function restartStream() {
+  if (!wantsPlayback) return;
+  clearRetry();
+
+  const freshStream = new URL(STREAM_URL);
+  freshStream.searchParams.set('_live', Date.now().toString());
+  audio.pause();
+  audio.src = freshStream.toString();
+  audio.load();
+
+  try {
+    await audio.play();
+  } catch (error) {
+    if (!wantsPlayback) return;
+    reconnectAttempt += 1;
+    playing = false;
+    updatePlaybackControls();
+    setPlayerError('SINAL OSCILANDO • NOVA TENTATIVA');
+    scheduleReconnect(Math.min(1500 * (2 ** Math.min(reconnectAttempt, 3)), 10000));
+  }
+}
+
+function togglePlayback() {
+  if (playing) {
+    wantsPlayback = false;
+    clearRetry();
+    audio.pause();
+    clearPlayerError();
+    return;
+  }
+
+  wantsPlayback = true;
+  clearPlayerError();
+  restartStream();
+}
+
+audio.addEventListener('playing', () => {
+  clearRetry();
+  reconnectAttempt = 0;
+  lastMediaTime = audio.currentTime;
+  lastProgressAt = Date.now();
+  playing = true;
+  clearPlayerError();
+  updatePlaybackControls();
+});
+
+audio.addEventListener('pause', () => {
+  playing = false;
+  updatePlaybackControls();
+});
+
+audio.addEventListener('timeupdate', () => {
+  if (Math.abs(audio.currentTime - lastMediaTime) < 0.05) return;
+  lastMediaTime = audio.currentTime;
+  lastProgressAt = Date.now();
+});
+
+audio.addEventListener('waiting', () => scheduleReconnect(4500));
+audio.addEventListener('stalled', () => scheduleReconnect(2500));
+audio.addEventListener('error', () => scheduleReconnect(1500));
+audio.addEventListener('ended', () => scheduleReconnect(1500));
+
+function resumeIfNeeded() {
+  if (document.visibilityState === 'visible' && wantsPlayback && (audio.paused || audio.readyState < 3)) restartStream();
+}
+
+window.addEventListener('focus', resumeIfNeeded);
+document.addEventListener('visibilitychange', resumeIfNeeded);
+
+window.setInterval(() => {
+  if (wantsPlayback && !audio.paused && Date.now() - lastProgressAt > 15000) {
+    setPlayerError('RECONECTANDO AO VIVO…');
+    restartStream();
+  }
+}, 5000);
+
+async function findArtwork(title) {
+  try {
+    const cleanTitle = title
+      .replace(/\b(?:remaster(?:ed)?|mastered|edition|topic)\b/gi, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+    const url = new URL('https://itunes.apple.com/search');
+    url.searchParams.set('term', cleanTitle);
+    url.searchParams.set('entity', 'song');
+    url.searchParams.set('limit', '1');
+    url.searchParams.set('country', 'BR');
+
+    const response = await fetch(url);
+    const data = await response.json();
+    const artwork = data.results && data.results[0] && data.results[0].artworkUrl100;
+    if (artwork) document.getElementById('track-artwork').src = artwork.replace('100x100bb', '600x600bb');
+  } catch (error) {
+    document.getElementById('track-artwork').src = STATION_ARTWORK;
+  }
+}
+
+window.planetaReggaeStatusCallback = function (status) {
+  const title = String(status.songtitle || 'Planeta Reggae — música sem fronteiras')
+    .replace(/\uFEFF/g, '')
+    .replace(/_/g, ' ')
+    .trim();
+
+  document.getElementById('track-title').textContent = title;
+  document.getElementById('radio-state').textContent = Number(status.streamstatus) === 1 ? 'TOCANDO AGORA' : 'RÁDIO PLANETA REGGAE';
+  findArtwork(title);
+};
+
+function refreshRadioStatus() {
+  const previous = document.getElementById('radio-status-jsonp');
+  if (previous) previous.remove();
+
+  const script = document.createElement('script');
+  script.id = 'radio-status-jsonp';
+  script.src = `${STATS_URL}&callback=planetaReggaeStatusCallback&_=${Date.now()}`;
+  script.async = true;
+  document.head.appendChild(script);
+}
+
+function refreshXatAvatar() {
+  document.getElementById('xat-avatar').src = `${XAT_AVATAR_URL}?live=${Math.floor(Date.now() / 120000)}`;
+}
+
+document.getElementById('track-artwork').addEventListener('error', (event) => {
+  event.currentTarget.src = STATION_ARTWORK;
+});
+
+document.getElementById('xat-avatar').addEventListener('error', (event) => {
+  event.currentTarget.src = XAT_AVATAR_URL;
+});
+
+updateClock();
+refreshRadioStatus();
+refreshXatAvatar();
+window.setInterval(updateClock, 1000);
+window.setInterval(refreshRadioStatus, 15000);
+window.setInterval(refreshXatAvatar, 120000);
+
+
+if (location.hash === "#ids") document.querySelector('[data-section="ids"]').click();
+
+</script>
+</body>
 </html>
+
+
+
